@@ -24,7 +24,7 @@ class Auth(object):
             'User-Agent': self.server.USER_AGENT,
             'X-Line-Application': self.server.APP_NAME,
             'X-Line-Carrier': self.server.CARRIER,
-            'x-lal': 'en_US'
+            'origin':'chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc'
         })
 
     def __loadSession(self):         
