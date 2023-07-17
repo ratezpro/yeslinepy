@@ -59,6 +59,7 @@ class LINE(Auth, Models, Talk, Square, Call, Timeline, Liff, Shop, E2EE):
     def __initAll(self):
 
         self.profile    = self.talk.getProfile()
+        self.groups     = self.getAllChatMids().memberChatMids
         self.userTicket = self.generateUserTicket()
 
         Models.__init__(self)
