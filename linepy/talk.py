@@ -518,9 +518,8 @@ class Talk(object):
         if channel.getProfileCoverId(mid) is not None:
             channel.updateProfileCoverById(channel.getProfileCoverId(mid))
         return self.updateProfile(profile)
-
-    """Group"""
-
+        
+    """Chat"""
     @loggedIn
     def getChatRoomAnnouncementsBulk(self, chatRoomMids):
         return self.talk.getChatRoomAnnouncementsBulk(chatRoomMids)
@@ -536,101 +535,6 @@ class Talk(object):
     @loggedIn
     def removeChatRoomAnnouncement(self, chatRoomMid, announcementSeq):
         return self.talk.removeChatRoomAnnouncement(0, chatRoomMid, announcementSeq)
-
-    @loggedIn
-    def getGroupWithoutMembers(self, groupId):
-        return self.talk.getGroupWithoutMembers(groupId)
-    
-    @loggedIn
-    def findGroupByTicket(self, ticketId):
-        return self.talk.findGroupByTicket(ticketId)
-
-    @loggedIn
-    def acceptGroupInvitation(self, groupId):
-        return self.talk.acceptGroupInvitation(0, groupId)
-
-    @loggedIn
-    def acceptGroupInvitationByTicket(self, groupId, ticketId):
-        return self.talk.acceptGroupInvitationByTicket(0, groupId, ticketId)
-
-    @loggedIn
-    def cancelGroupInvitation(self, groupId, contactIds):
-        return self.talk.cancelGroupInvitation(0, groupId, contactIds)
-
-    @loggedIn
-    def createGroup(self, name, midlist):
-        return self.talk.createGroup(0, name, midlist)
-
-    @loggedIn
-    def getGroup(self, groupId):
-        return self.talk.getGroup(groupId)
-
-    @loggedIn
-    def getChatV2(self, groupId):
-        return self.ntalk.getChats(GetChatsRequest([groupId], True, True)).chat[0]
-        
-    @loggedIn
-    def getGroups(self, groupIds):
-        return self.talk.getGroups(groupIds)
-
-    @loggedIn
-    def getGroupsV2(self, groupIds):
-        return self.talk.getGroupsV2(groupIds)
-
-    @loggedIn
-    def getCompactGroup(self, groupId):
-        return self.talk.getCompactGroup(groupId)
-
-    @loggedIn
-    def getCompactRoom(self, roomId):
-        return self.talk.getCompactRoom(roomId)
-
-    @loggedIn
-    def getGroupIdsByName(self, groupName):
-        gIds = []
-        for gId in self.getGroupIdsJoined():
-            g = self.getCompactGroup(gId)
-            if groupName in g.name:
-                gIds.append(gId)
-        return gIds
-
-    @loggedIn
-    def getGroupIdsInvited(self):
-        return self.talk.getGroupIdsInvited()
-
-    @loggedIn
-    def getGroupIdsJoined(self):
-        return self.talk.getGroupIdsJoined()
-
-    @loggedIn
-    def updateGroupPreferenceAttribute(self, groupMid, updatedAttrs):
-        return self.talk.updateGroupPreferenceAttribute(0, groupMid, updatedAttrs)
-
-    @loggedIn
-    def inviteIntoGroup(self, groupId, midlist):
-        return self.talk.inviteIntoGroup(0, groupId, midlist)
-
-    @loggedIn
-    def kickoutFromGroup(self, groupId, midlist):
-        return self.talk.kickoutFromGroup(0, groupId, midlist)
-
-    @loggedIn
-    def leaveGroup(self, groupId):
-        return self.talk.leaveGroup(0, groupId)
-
-    @loggedIn
-    def rejectGroupInvitation(self, groupId):
-        return self.talk.rejectGroupInvitation(0, groupId)
-
-    @loggedIn
-    def reissueGroupTicket(self, groupId):
-        return self.talk.reissueGroupTicket(groupId)
-
-    @loggedIn
-    def updateGroup(self, groupObject):
-        return self.talk.updateGroup(0, groupObject)
-
-    """Chat"""
 
     @loggedIn
     def acceptChatInvitationByTicket(self, chatMid, ticket):
