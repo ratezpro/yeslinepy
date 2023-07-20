@@ -1,4 +1,5 @@
 Yes LINEPY NEWLIB
+```LINE has discontinued the use of getGroup and switched to using getChat```
 ####
 ```python
 #GetAllgroup
